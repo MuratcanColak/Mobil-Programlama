@@ -1,0 +1,63 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Firebase için Google Services eklentisi
+}
+
+android {
+    namespace = "com.example.kampanya_uygulama"
+    compileSdk = 34 // Flutter'dan otomatik almak yerine sabit bir değer kullanabilirsiniz
+
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.kampanya_uygulama"
+        minSdk = 23 // Minimum SDK seviyesini 23 yapabilirsiniz (Firebase ile uyumlu)
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+
+        // MultiDex etkinleştirildi
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+    release {
+        // Bu satır kullanılmayan kaynakları küçültmeye çalışır.
+        // minifyEnabled kapalıysa, shrinkResources kullanılmamalıdır.
+        shrinkResources false
+        minifyEnabled false // Kod küçültme devre dışı bırakıldı
+
+        // Proguard dosyasını dahil edin (isteğe bağlı)
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+}
+
+}
+
+flutter {
+    source = "../.."
+}
+
+// Firebase eklentisi
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:32.2.0') // Firebase BOM ile versiyonları yönetir
+    implementation 'com.google.firebase:firebase-analytics' // Firebase Analytics (isteğe bağlı)
+    implementation 'com.google.firebase:firebase-firestore' // Firestore kullanımı için
+    implementation 'com.google.firebase:firebase-messaging'
+
+}
+
+// Google Services eklentisini uygula
+apply plugin: "com.google.gms.google-services"

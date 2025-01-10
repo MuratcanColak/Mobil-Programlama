@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "375648004319",
+    "project_id": "kampanyauygulamasi-2872a",
+    "storage_bucket": "kampanyauygulamasi-2872a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375648004319:android:fb69daa6b4a33eaed1a16a",
+        "android_client_info": {
+          "package_name": "com.example.kampanya_uygulama"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnXWZoZuTQBRvNV_59uaT3fOAoDwvkThM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
